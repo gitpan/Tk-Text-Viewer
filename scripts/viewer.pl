@@ -24,6 +24,7 @@ my $mw = MainWindow->new;
 my $t1 = $mw->Scrolled('Viewer', -wrap => 'none', -width => $width,  
 	-height=> $height, -cursor=>'tcross', 
 	-font=> $font . " " . $fontSize);
+$t1->tagConfigure('sel', -foreground => 'red');
 $t1->pack(-side => 'right', -fill => 'both', -expand => 'yes');
 $t1->LabelConfig({text=>"Search :", foreground=>'blue'});
 $t1->EntryConfig("-foreground=>'blue'");
@@ -74,6 +75,9 @@ my %MenuItems = (
         [ 'command' => 'Find Previous',
         -accelerator => 'F3',
         -command =>  sub {$t1->FindSelectionPrevious() }],
+        [ 'command' => 'Find All',
+        -accelerator => 'F5',
+        -command =>  sub {$t1->FindAll('-exact','-nocase') }],
 
 
     ]);
@@ -90,8 +94,9 @@ foreach (sort keys %MenuItems) {
 my $me = $0;
 $me =~ s|^.*/||;
 $me =~ s/\..*$//;
-
+ 
 if ($ARGV[0]) {
+    return 1 if $ARGV[0] eq '-Test.pm Syntax test';
     die "$me: Can't read $ARGV[0] \n" unless -r $ARGV[0];
     $t1->Load($ARGV[0]);
     $t1->configure(-background=>'white');
@@ -183,11 +188,12 @@ foreach (@$rArray) {
         }
     }
 };
+1;
 __END__
 
 =head1 NAME
 
-Viewer.pl - part of Tk::Text::Viewer
+Viewer.pl - File viewer using Tk::Text::Viewer
 
 =head1 SYNOPSIS
 
@@ -207,7 +213,7 @@ L<Tk::Text::Viewer>.
 =over 4
 
 
-C<Text::Viewer> was written by Oded S. Resnik E<lt>raz@raz.co.ilE<gt> in 2003.
+C<Tk::Text::Viewer> was written by Oded S. Resnik E<lt>raz@raz.co.ilE<gt> in 2003.
 
 B<Copyright (c) 2003 RAZ Information Systems All rights reserved>.
 I<http://www.raz.co.il/>

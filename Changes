@@ -1,5 +1,12 @@
 Revision history for Perl extension Tk::Text::Viewer.
 
-0.9  Mon Oct  6 20:26:21 2003
-    - original version; In distribution format
+0.91 Sat Oct 18 17:37:14 2003
+     - Documentation error fix
+     - Improved install and package procedure
+     - Prepare.pl (utility that build documentation) added to package
+     - Syntax test on viewer.pl added
+     - Adapted "FindAll" behavior.
+     - A menu entry in demo application viewer.pl for "FidndAll" Find All.
 
+0.90  Sat Oct 11 12:26:21 2003
+      - first version in CPAN

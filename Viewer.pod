@@ -63,7 +63,7 @@ this label if the widget is used in a non English application.
 
 Change one label widget option (for example cursor).
 
-=item * C<$text_view>-E<gt>C<LabelConfig>(I<{text=E<gt>'Find:',-cursor=E<gt>'dot',...>)
+=item * C<$text_view>-E<gt>C<LabelConfig>(I<{text=E<gt>'Find:',-cursor=E<gt>'dot',...}>)
 
 Replace label widget options with your own set of options.
 B<Do not>  change the 'Name' option of the label widget.
@@ -107,6 +107,10 @@ Clicking "n" will move to next search match.
 
 Clicking "N" will move to next previous match.
 
+=item "Control-A"
+
+Find all occurrences of searched item.
+
 
 =back
 
@@ -114,7 +118,9 @@ Clicking "N" will move to next previous match.
 
 =head1 SEE ALSO
 
-L<Tk::Text|Tk::Text>, L<Tk::Widget|Tk::Widget>, L<Tk::More|Tk::More> ,Tk documentation.
+L<viewer.pl|> - A utility using C<Tk::Text::Viewer> included with this package.
+
+L<Tk::Text|Tk::Text>, L<Tk::Widget|Tk::Widget>, L<Tk::More|Tk::More>, Tk documentation.
 
 =head1 AUTHOR
 

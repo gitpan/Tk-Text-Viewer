@@ -1,12 +1,13 @@
-#  Copyright (c) 2003 RAZ Information Systems LTD.
+# Author: Oded S. Resnik           Email: razinf@cpan.org
+#  Copyright (c) 2003 RAZ Information Systems LTD. http://www.raz.co.il
+#
 #You may distribute under the terms of either the GNU General Public
 #License or the Artistic License, as specified in the Perl README file
-#
 #
 package Tk::Text::Viewer;
 
 use vars qw($VERSION);
-$VERSION = '0.90';
+$VERSION = '0.91';
 use Tk::Text;
 use base  qw(Tk::Text);
 Construct Tk::Widget 'Viewer';
@@ -73,8 +74,8 @@ return $rNewOptions;
 sub ClassInit
 {
  my ($class,$mw) = @_;
- my $val = $class->bindRdOnly($mw);
  my $cb  = $mw->bind($class,'<Next>');
+ $class->bindRdOnly($mw);
  $mw->bind($class,'<space>',$cb) if (defined $cb);
  $cb  = $mw->bind($class,'<Prior>');
  $mw->bind($class,'<BackSpace>',$cb) if (defined $cb);
@@ -82,23 +83,50 @@ sub ClassInit
  $mw->bind($class,'<Key-slash>',FindSimplePopUp);
  $mw->bind($class,'<Key-n>', FindSelectionNext);
  $mw->bind($class,'<Key-N>', FindSelectionPrevious);
+ $mw->bind($class,'<Control-a>', FindAll );
  return $class;
  }
 
+
 sub Tk::Widget::ScrlViewer { shift->Scrolled('Viewer' => @_) }
+
+sub GetSelPattern {
+# As we want to be able to to "Next" afer FindAll we
+# can't always use selection so we use tags
+ my $w=shift;
+ my @ranges = $w->tagRanges('sel'); #Get tag index
+ my ($start_index, $end_index) = @ranges;
+ my $range_pattern = $w->get($start_index, $end_index) if @ranges;
+ my $select_patern; #Selection
+ eval { $select_patern = $w->SelectionGet(-selection => "PRIMARY"); };
+ if ($range_pattern) {
+	return $range_pattern if ($range_pattern eq $select_patern); 
+	return $select_pattern 
+			if ($select_pattern && @ranges> 1 
+				&& $select_pattern !~ /$range_patten/i); 
+        $w->unselectAll;	
+	$w->tagAdd('sel', $start_index, $end_index);
+	return $range_pattern;
+ 	}
+ return $select_pattern;
+}
 
 sub FindSimplePopUp {
  my $w=shift;
+ my $pattern = $w->GetSelPattern();
  foreach  ($w->children) { #Not allowing open when active
     if ($_->name eq 'entry_label' ) { 
                 $w->bell;
         return;
             };
     };
-my $entry_label = $w-> Label(%$rh_entry_label);
-$entry_label-> pack(-anchor=>'sw', -side=>'left', expand => 'no');
-
+ my $entry_label = $w-> Label(%$rh_entry_label);
+ $entry_label-> pack(-anchor=>'sw', -side=>'left', expand => 'no');
  my $find_entry = $w->Entry(%$rh_entry);
+ if ($pattern) { #Defalut value for entry the previous value
+ 	$find_entry -> insert(0, $pattern);
+ 	$find_entry -> selectionRange(0, length ($pattern)); 
+	}
  $find_entry -> bind( '<Any-KeyPress>' => \&KeyCheck);
  $find_entry -> pack (-anchor=>'se', -expand => 'yes' , -fill => 'x',
 	-side=>'right');
@@ -106,10 +134,30 @@ $entry_label-> pack(-anchor=>'sw', -side=>'left', expand => 'no');
  return;
 }
 
+sub FindAll {
+my ($w,$mode, $case, $pattern ) = @_;
+$mode = '-exact' unless $mode;
+$case = '-nocase' unless $case;
+if (!$pattern) {
+		$pattern = $w->GetSelPattern();
+		}
+return $w->SUPER::FindAll($mode, $case, $pattern);
+}
+
+sub FindSelectionNext {
+my $w = shift;
+$w->FindNext('-forward', '-exact', '-case',$w->GetSelPattern());
+}
+
+sub FindSelectionPrevious {
+my $w = shift;
+$w->FindNext('-backward', '-exact', '-case',$w->GetSelPattern());
+}
+
 sub FindSimpleDo
 {
-my $w = shift;
-my $parent = $w->parent;
+ my $w = shift;
+ my $parent = $w->parent;
  $parent->FindNext ('-forward','-exact','-nocase',$w->get());
  $parent->focus();
  foreach  ($parent->children) { 
