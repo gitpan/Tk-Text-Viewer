@@ -8,5 +8,6 @@ Viewer.pod
 misc/prepare.pl
 html/Viewer.html
 html/docs.css
-scripts/viewer.pl
+scripts/viewer.pl                Demo utility
 t/viewer.t
+META.yml                         Module meta-data (added by MakeMaker)

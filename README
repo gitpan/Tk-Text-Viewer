@@ -1,4 +1,4 @@
-Tk::Text::Viewer Version 0.91   README              2003 10 18
+Tk::Text::Viewer Version 0.93   README              2004 05 01
 
 NAME
     Tk::Text::Viewer - Simple Text Viewer
@@ -74,6 +74,10 @@ BINDINGS
     "Control-A"
         Find all occurrences of searched item.
 
+UNICODE
+    If $ENV{LANG} is a 'UTF-8' locale, file load will assume "utf8"
+    characters in file.
+
 SEE ALSO
     viewer.pl - A utility using Tk::Text::Viewer included with this package.
 
@@ -83,7 +87,7 @@ AUTHOR
         Tk::Text::Viewer was written by Oded S. Resnik <raz@raz.co.il> in
         2003.
 
-        Copyright (c) 2003 RAZ Information Systems All rights reserved.
+        Copyright (c) 2003-2004 RAZ Information Systems All rights reserved.
         http://www.raz.co.il/
 
         You may distribute under the terms of either the GNU General Public

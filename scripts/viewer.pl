@@ -14,7 +14,7 @@ require Tk::Dialog;
 require Tk::Text::Viewer;
 use vars qw($VERSION);
 
-$VERSION='0.99';
+$VERSION='1.002';
 my $width = $ARGV[0] ? 132 : 80;
 my $height = 25;
 my $font = "fixed";
@@ -22,11 +22,11 @@ my $fontSize = "12";
 ########################################################################
 my $mw = MainWindow->new;
 my $t1 = $mw->Scrolled('Viewer', -wrap => 'none', -width => $width,  
-	-height=> $height, -cursor=>'tcross', 
+	-height=> $height, -cursor=>'tcross',
 	-font=> $font . " " . $fontSize);
 $t1->tagConfigure('sel', -foreground => 'red');
 $t1->pack(-side => 'right', -fill => 'both', -expand => 'yes');
-$t1->LabelConfig({text=>"Search :", foreground=>'blue'});
+$t1->LabelConfig({-text=>"Search :", -foreground=>'blue'});
 $t1->EntryConfig("-foreground=>'blue'");
 # ------ Menu
 my $mMenu = $t1->Menu( -type => 'menubar' );
@@ -215,7 +215,7 @@ L<Tk::Text::Viewer>.
 
 C<Tk::Text::Viewer> was written by Oded S. Resnik E<lt>raz@raz.co.ilE<gt> in 2003.
 
-B<Copyright (c) 2003 RAZ Information Systems All rights reserved>.
+B<Copyright (c) 2003-2004 RAZ Information Systems All rights reserved>.
 I<http://www.raz.co.il/>
 
 You may distribute under the terms of either the GNU General Public

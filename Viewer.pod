@@ -1,4 +1,4 @@
-#  Copyright (c) 2003 RAZ Information Systems LTD.
+#  Copyright (c) 2003-2004 RAZ Information Systems LTD.
 #You may distribute under the terms of either the GNU General Public
 #License or the Artistic License, as specified in the Perl README file
 #
@@ -30,7 +30,7 @@ Tk::Text::Viewer B<IS A> text widget that can display text files under TK.
 It enable the user to search text and navigate in a Text widget.
 The reason for creating this module is that it doesn't require
 downloading of modules other that Tk;
-Look for widget options in L<Tk::Text>.
+Look for widget options in L<Tk::Text>. 
 
 A separate F<viewer.pl> program is included that can be used as a stand alone
 file browser.
@@ -115,6 +115,9 @@ Find all occurrences of searched item.
 =back
 
 
+=head1 UNICODE 
+
+If B<$ENV{LANG}> is a 'UTF-8' locale, file load will assume "utf8" characters in file.
 
 =head1 SEE ALSO
 
@@ -129,7 +132,7 @@ L<Tk::Text|Tk::Text>, L<Tk::Widget|Tk::Widget>, L<Tk::More|Tk::More>, Tk documen
 
 C<Tk::Text::Viewer> was written by Oded S. Resnik E<lt>raz@raz.co.ilE<gt> in 2003.
 
-B<Copyright (c) 2003 RAZ Information Systems All rights reserved>.
+B<Copyright (c) 2003-2004 RAZ Information Systems All rights reserved>.
 I<http://www.raz.co.il/>
 
 You may distribute under the terms of either the GNU General Public

@@ -7,13 +7,13 @@
 package Tk::Text::Viewer;
 
 use vars qw($VERSION);
-$VERSION = '0.91';
+$VERSION = '0.93';
 use Tk::Text;
 use base  qw(Tk::Text);
 Construct Tk::Widget 'Viewer';
 
 #default enrty lable options
-my $rh_entry_label = {text=>'Find:', Name=>'entry_label', -cursor=> 'arrow'};
+my $rh_entry_label = {-text=>'Find:', Name=>'entry_label', -cursor=> 'arrow'};
 my $rh_entry = {-width=>25, -relief=>'sunken', -borderwidth=>3};
                 
 
@@ -121,7 +121,7 @@ sub FindSimplePopUp {
             };
     };
  my $entry_label = $w-> Label(%$rh_entry_label);
- $entry_label-> pack(-anchor=>'sw', -side=>'left', expand => 'no');
+ $entry_label-> pack(-anchor=>'sw', -side=>'left', -expand => 'no');
  my $find_entry = $w->Entry(%$rh_entry);
  if ($pattern) { #Defalut value for entry the previous value
  	$find_entry -> insert(0, $pattern);
@@ -176,9 +176,11 @@ return 1;
 
 sub Load
 # Load copied from TextUndo
+# Unicode support added for UTF-8 locale
 {
  my ($text,$file) = @_;
- if (open(FILE,"<$file"))
+ my $fmode  = ($ENV{LANG} =~ /\.UTF-8/) && $]> 5.007 ? "<:utf8" : "<";
+ if (open(FILE,$fmode, $file))
   {
    $text->MainWindow->Busy;
    $text->delete('1.0','end');

@@ -1,20 +1,21 @@
 use ExtUtils::MakeMaker;
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
-sub MY::clean
-{
-    package MY; # so that "SUPER" works right
-    my $inherited = shift->SUPER::clean(@_);
-    $inherited .= <<EOF;
-	-rm -rf misc/*.x~~ *.bak *.x~~
-EOF
-    $inherited;
-}
+#sub MY::clean
+#{
+#    package MY; # so that "SUPER" works right
+#    my $inherited = shift->SUPER::clean(@_);
+#    $inherited .= <<EOF;
+#	-rm -rf misc/*.x~~ *.bak *.x~~
+#EOF
+#    $inherited; 804.027
+#}
 WriteMakefile(
     'NAME'        => 'Tk::Text::Viewer',
     'VERSION_FROM'    => 'Viewer.pm', # finds $VERSION
-    'PREREQ_PM'        => {'Tk'             => 0}, 
+    'PREREQ_PM'        => {'Tk'             => 804}, 
     'EXE_FILES'    =>     => ['scripts/viewer.pl'],
+    'clean' => {FILES => 'misc/*.bak misc/*.x~~ *.bak *.x~~'},
     'dist' => { PREOP=> 'chmod -R u=rwX,go=rX . ;' . 
 		'chown -R oded:users *;' . 
 		'misc/prepare.pl > prepare.log.x~~' ,
