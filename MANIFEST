@@ -1,0 +1,11 @@
+Changes
+INSTALL
+MANIFEST			This list of files
+Makefile.PL
+README
+Viewer.pm
+Viewer.pod
+html/Viewer.html
+html/docs.css
+scripts/viewer.pl
+t/viewer.t
