@@ -1,4 +1,4 @@
-Tk::Text::Viewer Version 0.93   README              2004 05 01
+Tk::Text::Viewer Version 0.94   README              2009 11 13
 
 NAME
     Tk::Text::Viewer - Simple Text Viewer
@@ -32,25 +32,28 @@ WIDGET METHODS
 
     The following additional method is available for viewer widgets:
 
-    $text_view->Load($filename)
+    *$text_view*->Load(*$filename*)
         Load file into the text widget.
 
-    $text_view->LabelConfig(string or hash ref)
+    *$text_view*->LabelConfig(string or hash ref)
 
-        * $text_view->LabelConfig("Search:")
+        *   $text_view->LabelConfig(*"Search:"*)
+
             Change label for the search entry field. You might want to
             change this label if the widget is used in a non English
             application.
 
-        * $text_view->LabelConfig("-cursor=> 'dot'")
+        *   $text_view->LabelConfig(*"-cursor=> 'dot'"*)
+
             Change one label widget option (for example cursor).
 
-        * $text_view->LabelConfig({text=>'Find:',-cursor=>'dot',...})
+        *   $text_view->LabelConfig(*{text=>'Find:',-cursor=>'dot',...}*)
+
             Replace label widget options with your own set of options. Do
             not change the 'Name' option of the label widget. See Tk::Label
             for valid options
 
-    $text_view->EntryConfig(string or hash ref)
+    *$text_view*->EntryConfig(string or hash ref)
         Change the entry widget options. Read LabelConfig for information
         about parameters. See Tk::Entry for valid options.
 
@@ -88,9 +91,11 @@ AUTHOR
         2003.
 
         Copyright (c) 2003-2004 RAZ Information Systems All rights reserved.
-        http://www.raz.co.il/
+        *http://www.raz.co.il/*
 
         You may distribute under the terms of either the GNU General Public
         License or the Artistic License, as specified in the Perl README
         file
 
+=== README Viewer.pod done ...
+=== Viewer.html done ...

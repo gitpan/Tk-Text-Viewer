@@ -13,7 +13,7 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
     'NAME'        => 'Tk::Text::Viewer',
     'VERSION_FROM'    => 'Viewer.pm', # finds $VERSION
-    'PREREQ_PM'        => {'Tk'             => 804}, 
+    'PREREQ_PM'        => {'Tk'             => 0}, 
     'EXE_FILES'    =>     => ['scripts/viewer.pl'],
     'clean' => {FILES => 'misc/*.bak misc/*.x~~ *.bak *.x~~'},
     'dist' => { PREOP=> 'chmod -R u=rwX,go=rX . ;' . 

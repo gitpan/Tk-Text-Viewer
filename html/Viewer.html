@@ -1,15 +1,19 @@
+<?xml version="1.0" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Tk::Text::Viewer Version 0.93</title>
+<title>Tk::Text::Viewer Version 0.94</title>
 <link rel="stylesheet" href="./html/docs.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rev="made" href="mailto:root@localhost" />
 </head>
 
 <body>
 
-<p><a name="__index__"></a></p>
+
 <!-- INDEX BEGIN -->
+<div name="index">
+<p><a name="__index__"></a></p>
 
 <ul>
 
@@ -22,9 +26,11 @@
 	<li><a href="#see_also">SEE ALSO</a></li>
 	<li><a href="#author">AUTHOR</a></li>
 </ul>
+
+<hr name="index" />
+</div>
 <!-- INDEX END -->
 
-<hr />
 <p>
 </p>
 <h1><a name="name">NAME</a></h1>
@@ -55,7 +61,7 @@ It enable the user to search text and navigate in a Text widget.
 The reason for creating this module is that it doesn't require
 downloading of modules other that Tk;
 Look for widget options in <a href="/Tk/Text.html">the Tk::Text manpage</a>.</p>
-<p>A separate <em>viewer.pl</em> program is included that can be used as a stand alone
+<p>A separate <em class="file">viewer.pl</em> program is included that can be used as a stand alone
 file browser.</p>
 <p>
 </p>
@@ -65,37 +71,39 @@ file browser.</p>
  Tk::Widget and Tk::Text classes.</p>
 <p>The following additional method is available for viewer widgets:</p>
 <dl>
-<dt><strong><a name="item_load"><em>$text_view</em>-&gt;<strong>Load</strong>(<em>$filename</em>)</a></strong><br />
-</dt>
+<dt><strong><a name="load" class="item"><em>$text_view</em>-&gt;<strong>Load</strong>(<em>$filename</em>)</a></strong></dt>
+
 <dd>
-Load file into the text widget.
+<p>Load file into the text widget.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item_labelconfig"><em>$text_view</em>-&gt;<strong>LabelConfig</strong>(string or hash ref)</a></strong><br />
-</dt>
+<dt><strong><a name="labelconfig" class="item"><em>$text_view</em>-&gt;<strong>LabelConfig</strong>(string or hash ref)</a></strong></dt>
+
+<dd>
 <ul>
-<li><strong><code>$text_view</code>-&gt;<code>LabelConfig</code>(<em>``Search:''</em>)</strong><br />
+<li><strong><code>$text_view</code>-&gt;<code>LabelConfig</code>(<em>&quot;Search:&quot;</em>)</strong>
+
+<p>Change label for the search entry field. You might want to change
+this label if the widget is used in a non English application.</p>
 </li>
-Change label for the search entry field. You might want to change
-this label if the widget is used in a non English application.
-<p></p>
-<li><strong><code>$text_view</code>-&gt;<code>LabelConfig</code>(<em>``-cursor=&gt; 'dot'''</em>)</strong><br />
+<li><strong><code>$text_view</code>-&gt;<code>LabelConfig</code>(<em>&quot;-cursor=&gt; 'dot'&quot;</em>)</strong>
+
+<p>Change one label widget option (for example cursor).</p>
 </li>
-Change one label widget option (for example cursor).
-<p></p>
-<li><strong><code>$text_view</code>-&gt;<code>LabelConfig</code>(<em>{text=&gt;'Find:',-cursor=&gt;'dot',...}</em>)</strong><br />
-</li>
-Replace label widget options with your own set of options.
+<li><strong><code>$text_view</code>-&gt;<code>LabelConfig</code>(<em>{text=&gt;'Find:',-cursor=&gt;'dot',...}</em>)</strong>
+
+<p>Replace label widget options with your own set of options.
 <strong>Do not</strong>  change the 'Name' option of the label widget.
-See <a href="/Tk/Label.html">the Tk::Label manpage</a> for valid options
-<p></p></ul>
-<dt><strong><a name="item_entryconfig"><em>$text_view</em>-&gt;<strong>EntryConfig</strong>(string or hash ref)</a></strong><br />
-</dt>
-<dd>
-Change the entry widget options. Read <a href="#item_labelconfig"><code>LabelConfig</code></a> for information
-about parameters. See <a href="/Tk/Entry.html">the Tk::Entry manpage</a> for valid options.
+See <a href="/Tk/Label.html">the Tk::Label manpage</a> for valid options</p>
+</li>
+</ul>
 </dd>
-<p></p></dl>
+<dt><strong><a name="entryconfig" class="item"><em>$text_view</em>-&gt;<strong>EntryConfig</strong>(string or hash ref)</a></strong></dt>
+
+<dd>
+<p>Change the entry widget options. Read <a href="#labelconfig"><code>LabelConfig</code></a> for information
+about parameters. See <a href="/Tk/Entry.html">the Tk::Entry manpage</a> for valid options.</p>
+</dd>
+</dl>
 <p>
 </p>
 <hr />
@@ -103,47 +111,42 @@ about parameters. See <a href="/Tk/Entry.html">the Tk::Entry manpage</a> for val
 <p>For inherited bindings look <a href="/Tk/Text.html">the Tk::Text manpage</a>.
 Following are class specific bindings.</p>
 <dl>
-<dt><strong><a name="item__22space_22">``Space''</a></strong><br />
-</dt>
+<dt><strong><a name="space" class="item">&quot;Space&quot;</a></strong></dt>
+
 <dd>
-Clicking Space will move text one page ahead.
+<p>Clicking Space will move text one page ahead.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item__22backspace_22">``BackSpace''</a></strong><br />
-</dt>
+<dt><strong><a name="backspace" class="item">&quot;BackSpace&quot;</a></strong></dt>
+
 <dd>
-Clicking BackSpace will move text one page up.
+<p>Clicking BackSpace will move text one page up.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item__22slash_22">``Slash''</a></strong><br />
-</dt>
+<dt><strong><a name="slash" class="item">&quot;Slash&quot;</a></strong></dt>
+
 <dd>
-Clicking ``/'' will open text search window.
+<p>Clicking &quot;/&quot; will open text search window.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item__22n_22">``n''</a></strong><br />
-</dt>
+<dt><strong><a name="n" class="item">&quot;n&quot;</a></strong></dt>
+
 <dd>
-Clicking ``n'' will move to next search match.
+<p>Clicking &quot;n&quot; will move to next search match.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item__22n_22">``N''</a></strong><br />
-</dt>
+<dt><strong><a name="n" class="item">&quot;N&quot;</a></strong></dt>
+
 <dd>
-Clicking ``N'' will move to next previous match.
+<p>Clicking &quot;N&quot; will move to next previous match.</p>
 </dd>
-<p></p>
-<dt><strong><a name="item__22control_2da_22">``Control-A''</a></strong><br />
-</dt>
+<dt><strong><a name="control_a" class="item">&quot;Control-A&quot;</a></strong></dt>
+
 <dd>
-Find all occurrences of searched item.
+<p>Find all occurrences of searched item.</p>
 </dd>
-<p></p></dl>
+</dl>
 <p>
 </p>
 <hr />
 <h1><a name="unicode">UNICODE</a></h1>
-<p>If <strong>$ENV{LANG}</strong> is a 'UTF-8' locale, file load will assume ``utf8'' characters in file.</p>
+<p>If <strong>$ENV{LANG}</strong> is a 'UTF-8' locale, file load will assume &quot;utf8&quot; characters in file.</p>
 <p>
 </p>
 <hr />

@@ -1,11 +1,14 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         Tk-Text-Viewer
-version:      0.93
-version_from: Viewer.pm
-installdirs:  site
-requires:
-    Tk:                            804
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.17
+--- #YAML:1.0
+name:                Tk-Text-Viewer
+version:             0.94
+abstract:            Read only Tk Text Widget with search capability
+license:             ~
+author:              
+    - Oded S. Resnik <razinf at cpan.org>
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
+    Tk:                            0
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3

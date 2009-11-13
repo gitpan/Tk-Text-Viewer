@@ -1,5 +1,5 @@
 # Author: Oded S. Resnik           Email: razinf@cpan.org
-#  Copyright (c) 2003 RAZ Information Systems LTD. http://www.raz.co.il
+#  Copyright (c) 2003-2004 RAZ Information Systems LTD. http://www.raz.co.il
 #
 #You may distribute under the terms of either the GNU General Public
 #License or the Artistic License, as specified in the Perl README file
@@ -7,7 +7,8 @@
 package Tk::Text::Viewer;
 
 use vars qw($VERSION);
-$VERSION = '0.93';
+$VERSION = '0.94';
+$ENV{LANG} = 'C' unless $ENV{LANG};
 use Tk::Text;
 use base  qw(Tk::Text);
 Construct Tk::Widget 'Viewer';

@@ -1,7 +1,10 @@
 Revision history for Perl extension Tk::Text::Viewer.
 
+0.94 Sat May 15 21:42:32 2004
+     As testing with older version of Tk where OK, requirement
+     for Tk 804 was dropped
 0.93 Sat May 1  20:22:11 2004
-     This version requiers Tk 804. If you have older Tk
+     This version requires Tk 804. If you have older Tk
      you my use version 0.91
      - fix Tk::Entry options like '-text' to comply with Tk 804.027
      - Enable utf8 support for UTF-8 locale on Perl 5.8
@@ -11,7 +14,7 @@ Revision history for Perl extension Tk::Text::Viewer.
      - Prepare.pl (utility that build documentation) added to package
      - Syntax test on viewer.pl added
      - Adapted "FindAll" behavior.
-     - A menu entry in demo application (viewer.pl) for "FidndAll" Find All.
+     - A menu entry in demo application (viewer.pl) for "FindAll" Find All.
 
 0.90  Sat Oct 11 12:26:21 2003
       - first version in CPAN
