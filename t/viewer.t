@@ -3,7 +3,7 @@
 
 #########################
 
-use Test::More;
+use Test::More qw(no_plan);
 use Tk::Text::Viewer;
 use Tk;
 ok(1); # If we made it this far, were ok.
@@ -21,14 +21,14 @@ SKIP: {
    skip "Failure to access X-terminal, bad host configuration assumed", 3 
       if $@ =~ /couldn't connect to display/;
 
-   note("Connected to X-terminal we may proceed testing");
+   ok(1,"Connected to X-terminal we may proceed testing");
 
-   ok($mw); #2
+
+   ok($mw,"Main window defined"); #2
 
    # $t1 = $mw->Scrolled('Viewer', -wrap => 'none');
    $t1 = $mw->Viewer();
 
-   ok($t1->pack(-side => 'right', -fill => 'both', -expand => 'yes')); #3
-   ok($t1->Load("$0")); #4
+   ok($t1->pack(-side => 'right', -fill => 'both', -expand => 'yes'),"pack"); #3
+   ok($t1->Load("$0"),"load $0"); #4
 }
-done_testing();

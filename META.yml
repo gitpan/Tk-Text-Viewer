@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                Tk-Text-Viewer
-version:             0.94
+version:             0.95
 abstract:            Read only Tk Text Widget with search capability
 license:             ~
 author:              

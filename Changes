@@ -1,8 +1,11 @@
 Revision history for Perl extension Tk::Text::Viewer.
 
-0.94 Sat May 15 21:42:32 2004
+0.94 Sun Mar 07 00:02:45 2010
+     Test adapetd for newer Test::More requiermets
+0.94 Fri Nov 13 20:12:22 2009
      As testing with older version of Tk where OK, requirement
      for Tk 804 was dropped
+     Skip testing for host not configured to run X
 0.93 Sat May 1  20:22:11 2004
      This version requires Tk 804. If you have older Tk
      you my use version 0.91

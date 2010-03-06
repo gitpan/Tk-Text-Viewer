@@ -1,7 +1,7 @@
 #!/usr/local/bin/perl -w
 # COPYRIGHT
 #       Author: Oded S. Resnik
-#       Copyright (c) 2003 Raz Information Systems Ltd.
+#       Copyright (c) 2003-2010 Raz Information Systems Ltd.
 #       http://www.raz.co.il
 #
 # This program is free software; you can redistribute it and/or
@@ -215,7 +215,7 @@ L<Tk::Text::Viewer>.
 
 C<Tk::Text::Viewer> was written by Oded S. Resnik E<lt>raz@raz.co.ilE<gt> in 2003.
 
-B<Copyright (c) 2003-2004 RAZ Information Systems All rights reserved>.
+B<Copyright (c) 2003-2010 RAZ Information Systems All rights reserved>.
 I<http://www.raz.co.il/>
 
 You may distribute under the terms of either the GNU General Public

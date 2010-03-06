@@ -17,7 +17,7 @@ WriteMakefile(
     'EXE_FILES'    =>     => ['scripts/viewer.pl'],
     'clean' => {FILES => 'misc/*.bak misc/*.x~~ *.bak *.x~~'},
     'dist' => { PREOP=> 'chmod -R u=rwX,go=rX . ;' . 
-		'chown -R oded:users *;' . 
+		'sudo chown -R oded:users *;' . 
 		'misc/prepare.pl > prepare.log.x~~' ,
 		COMPRESS=>"gzip --best --force", 
 		SUFFIX=>".gz", DIST_DEFAULT => 'all tardist'},

@@ -7,7 +7,7 @@
 package Tk::Text::Viewer;
 
 use vars qw($VERSION);
-$VERSION = '0.94';
+$VERSION = '0.95';
 $ENV{LANG} = 'C' unless $ENV{LANG};
 use Tk::Text;
 use base  qw(Tk::Text);

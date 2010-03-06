@@ -10,4 +10,5 @@ html/Viewer.html
 html/docs.css
 scripts/viewer.pl                Demo utility
 t/viewer.t
+t/pl.t
 META.yml                         Module meta-data (added by MakeMaker)
